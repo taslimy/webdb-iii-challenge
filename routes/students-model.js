@@ -14,9 +14,14 @@ function find() {
 }
 
 function findById(id) {
-  return db("students")
-    .where({ id })
-    .first();
+  return db
+    .select("students.name", "students.id", "cohorts.name as cohort")
+    .from("students")
+    .leftJoin("cohorts", "students.cohort_id", "cohorts.id")
+    .where('students.id', id);
+  // return db("students")
+  //   .where({ id })
+  //   .first();
 }
 
 function insert(student) {
@@ -36,6 +41,5 @@ function remove(id) {
 }
 
 function findStudentsByCohort(cohort_id) {
-  return db('students')
-  .where({ cohort_id })
+  return db("students").where({ cohort_id });
 }

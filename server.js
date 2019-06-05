@@ -10,6 +10,7 @@ server.get("/", (req, res) => {
 
 // Define Routes
 server.use("/api/cohorts", require("./routes/cohorts-router"));
+server.use("/api/students", require("./routes/students-router"));
 
 // Logger
 function logger(req, res, next) {
