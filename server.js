@@ -4,12 +4,12 @@ const server = express();
 server.use(express.json());
 server.use(logger);
 
-server.get('/', (req,res) => {
-  res.send(`<p> TESTING AM I LIVE </p>`)
-})
+server.get("/", (req, res) => {
+  res.send(`<p> TESTING AM I LIVE </p>`);
+});
 
 // Define Routes
-// server.use('/api/cohorts', require(''))
+server.use("/api/cohorts", require("./routes/cohorts-router"));
 
 // Logger
 function logger(req, res, next) {

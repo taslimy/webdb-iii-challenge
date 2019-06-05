@@ -5,7 +5,8 @@ module.exports = {
   findById,
   insert,
   update,
-  remove
+  remove,
+  findStudentsByCohort
 };
 
 function find() {
@@ -32,4 +33,9 @@ function remove(id) {
   return db("students")
     .where({ id })
     .del();
+}
+
+function findStudentsByCohort(cohort_id) {
+  return db('students')
+  .where({ cohort_id })
 }
